@@ -3904,6 +3904,27 @@ export type IndexImagesQueryQuery = (
   )> }
 );
 
+export type PartnerLogosQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PartnerLogosQueryQuery = (
+  { __typename?: 'Query' }
+  & { allFile: (
+    { __typename?: 'FileConnection' }
+    & { nodes: Array<(
+      { __typename?: 'File' }
+      & Pick<File, 'id' | 'name'>
+      & { childImageSharp?: Maybe<(
+        { __typename?: 'ImageSharp' }
+        & { fixed?: Maybe<(
+          { __typename?: 'ImageSharpFixed' }
+          & GatsbyImageSharpFixedFragment
+        )> }
+      )> }
+    )> }
+  ) }
+);
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 

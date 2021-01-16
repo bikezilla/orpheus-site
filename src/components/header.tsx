@@ -29,7 +29,7 @@ const Header = ({ location }: { location?: string }) => {
                 </NavDropdown.Item>
               </NavDropdown>
               <HeaderLink title="Карта" to="/map" />
-              <HeaderLink title="Организации" to="/clubs" />
+              <HeaderLink title="Организации" to="/organisations" />
               <HeaderLink title="Екип" to="/team" />
               <HeaderLink title="Контакти" to="/contacts" />
             </ul>
