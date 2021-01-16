@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { SiteTitleQueryQuery } from "graphql-types"
 import React from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import Header from "./header"
@@ -24,7 +23,7 @@ const Layout = ({
   location?: any
   children: React.ReactNode
 }) => {
-  const data = useStaticQuery<SiteTitleQueryQuery>(SITE_TITLE_QUERY)
+  const data = useStaticQuery<GatsbyTypes.SiteTitleQueryQuery>(SITE_TITLE_QUERY)
 
   return (
     <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>

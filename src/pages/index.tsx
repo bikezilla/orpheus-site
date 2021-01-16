@@ -1,36 +1,35 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { IndexImagesQueryQuery } from "graphql-types"
 import React, { useState } from "react"
 import { Card, Carousel, ListGroup, ListGroupItem } from "react-bootstrap"
 import { GiMountains, GiSafetyPin, GiUpgrade } from "react-icons/gi"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const INDEX_IMAGES_QUERY = graphql`
-  query IndexImagesQuery {
-    slider: allFile(filter: { relativeDirectory: { eq: "index-slider" } }) {
-      nodes {
-        id
-        childImageSharp {
-          fluid(maxWidth: 1140, maxHeight: 400) {
-            ...GatsbyImageSharpFluid
+const IndexPage = () => {
+  const query = useStaticQuery<GatsbyTypes.IndexImagesQueryQuery>(
+    graphql`
+      query IndexImagesQuery {
+        slider: allFile(filter: { relativeDirectory: { eq: "index-slider" } }) {
+          nodes {
+            id
+            childImageSharp {
+              fluid(maxWidth: 1140, maxHeight: 400) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        footer: file(relativePath: { eq: "index-footer.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 900) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
-    }
-    footer: file(relativePath: { eq: "index-footer.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 900) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
-
-const IndexPage = () => {
-  const query = useStaticQuery<IndexImagesQueryQuery>(INDEX_IMAGES_QUERY)
+    `
+  )
 
   const [sliderIndex, setSliderIndex] = useState(1)
 

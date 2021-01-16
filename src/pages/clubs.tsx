@@ -5,8 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function TeamPage() {
-  const query = useStaticQuery(graphql`
-    query {
+  const query = useStaticQuery<GatsbyTypes.OrgImagesQueryQuery>(graphql`
+    query OrgImagesQuery {
       alabak: file(relativePath: { eq: "orgs/alabak.jpg" }) {
         childImageSharp {
           fixed(width: 250) {
@@ -52,7 +52,7 @@ export default function TeamPage() {
       <div className="card-columns">
         <ClubCard
           title="Сдружение Vratsa Trails"
-          image={query.vratsa.childImageSharp.fixed}
+          image={query!.vratsa!.childImageSharp!.fixed}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -66,7 +66,7 @@ export default function TeamPage() {
         </ClubCard>
         <ClubCard
           title="Сдружение Алабак"
-          image={query.alabak.childImageSharp.fixed}
+          image={query!.alabak!.childImageSharp!.fixed}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -80,7 +80,7 @@ export default function TeamPage() {
         </ClubCard>
         <ClubCard
           title="Сдружение Байкария"
-          image={query.bikearea.childImageSharp.fixed}
+          image={query!.bikearea!.childImageSharp!.fixed}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -92,7 +92,7 @@ export default function TeamPage() {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </ClubCard>
-        <ClubCard title="МТБ-БГ" image={query.mtbBg.childImageSharp.fixed}>
+        <ClubCard title="МТБ-БГ" image={query!.mtbBg!.childImageSharp!.fixed}>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -106,7 +106,7 @@ export default function TeamPage() {
 
         <ClubCard
           title="Велоклуб Крива Спица"
-          image={query.kriva.childImageSharp.fixed}
+          image={query!.kriva!.childImageSharp!.fixed}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -123,7 +123,15 @@ export default function TeamPage() {
   )
 }
 
-function ClubCard({ image, title, children }) {
+function ClubCard({
+  image,
+  title,
+  children,
+}: {
+  image: any
+  title: string
+  children: React.ReactNode
+}) {
   return (
     <div className="card">
       <div className="card-body">

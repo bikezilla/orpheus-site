@@ -12,14 +12,9 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-graphql-codegen`,
+      resolve: `gatsby-plugin-typegen`,
       options: {
-        fileName: "./ts/graphql-types.d.ts",
-        codegen: false,
-        documentPaths: [
-          "./src/**/*.{ts,tsx}",
-          "./node_modules/gatsby-*/**/*.js",
-        ],
+        autoFix: false,
       },
     },
 

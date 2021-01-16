@@ -1,21 +1,18 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { GuideQueryQuery } from "graphql-types"
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const VARVARA_QUERY = graphql`
-  query VarvaraQuery {
-    mdx(frontmatter: { title: { eq: "varvara" } }) {
-      body
-    }
-  }
-`
-
 const VarvaraPage = (props: any) => {
-  // TODO: Fix the type
-  const query = useStaticQuery<GuideQueryQuery>(VARVARA_QUERY)
+  const query = useStaticQuery<GatsbyTypes.VarvaraQueryQuery>(graphql`
+    query VarvaraQuery {
+      mdx(frontmatter: { title: { eq: "varvara" } }) {
+        body
+        tableOfContents
+      }
+    }
+  `)
 
   if (!query) return <div>Not found!</div>
 

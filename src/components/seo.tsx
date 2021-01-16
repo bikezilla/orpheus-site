@@ -6,7 +6,6 @@
  */
 
 import { graphql, useStaticQuery } from "gatsby"
-import { SiteMetadataQueryQuery } from "graphql-types"
 import React from "react"
 import { Helmet } from "react-helmet"
 
@@ -38,7 +37,9 @@ function SEO({
   meta?: MetaItem[]
   title: string
 }) {
-  const { site } = useStaticQuery<SiteMetadataQueryQuery>(SITE_METADATA_QUERY)
+  const { site } = useStaticQuery<GatsbyTypes.SiteMetadataQueryQuery>(
+    SITE_METADATA_QUERY
+  )
 
   const metaDescription =
     description || site?.siteMetadata?.description || "default description"

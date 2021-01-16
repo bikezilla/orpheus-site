@@ -5,8 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const AdvicesPage = () => {
-  const query = useStaticQuery(graphql`
-    query {
+  const query = useStaticQuery<GatsbyTypes.AdvicesQueryQuery>(graphql`
+    query AdvicesQuery {
       mdx(frontmatter: { title: { eq: "advices" } }) {
         body
         tableOfContents(maxDepth: 4)
@@ -15,10 +15,10 @@ const AdvicesPage = () => {
   `)
 
   return (
-    <Layout tableOfContents={query.mdx.tableOfContents}>
+    <Layout tableOfContents={query!.mdx!.tableOfContents}>
       <SEO title="Полезни съвети" />
       <div className="guide">
-        <MDXRenderer>{query.mdx.body}</MDXRenderer>
+        <MDXRenderer>{query!.mdx!.body}</MDXRenderer>
       </div>
     </Layout>
   )

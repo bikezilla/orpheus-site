@@ -5,8 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 export default function TeamPage() {
-  const query = useStaticQuery(graphql`
-    query {
+  const query = useStaticQuery<GatsbyTypes.TeamImagesQueryQuery>(graphql`
+    query TeamImagesQuery {
       pavel: file(relativePath: { eq: "team/pavel.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 540) {
@@ -45,7 +45,7 @@ export default function TeamPage() {
         <div className="card mb-3 mt-3">
           <Img
             className="card-img-top"
-            fluid={query.pavel.childImageSharp.fluid}
+            fluid={query!.pavel!.childImageSharp!.fluid!}
           />
           <div className="card-body">
             <h5>Павел Сидеров / Сдружение "Алабак"</h5>
@@ -63,7 +63,7 @@ export default function TeamPage() {
         <div className="card mb-3 mt-3">
           <Img
             className="card-img-top"
-            fluid={query.vasko.childImageSharp.fluid}
+            fluid={query!.vasko!.childImageSharp!.fluid!}
           />
           <div className="card-body">
             <h5>Васил Тодев / Сдружение "Байкария"</h5>
@@ -88,7 +88,7 @@ export default function TeamPage() {
         <div className="card mb-3 mt-3">
           <Img
             className="card-img-top"
-            fluid={query.lyubo.childImageSharp.fluid}
+            fluid={query!.lyubo!.childImageSharp!.fluid!}
           />
           <div className="card-body">
             <h5>Любомир Ботушаров / "МТБ-БГ"</h5>
@@ -106,7 +106,7 @@ export default function TeamPage() {
         <div className="card mb-3 mt-3">
           <Img
             className="card-img-top"
-            fluid={query.vlado.childImageSharp.fluid}
+            fluid={query!.vlado!.childImageSharp!.fluid!}
           />
           <div className="card-body">
             <h5>Владимир Конушлиев / Велоклуб "Крива Спица"</h5>
