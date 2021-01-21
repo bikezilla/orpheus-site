@@ -3863,6 +3863,17 @@ export type SiteMetadataQueryQuery = (
   )> }
 );
 
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = (
+  { __typename?: 'Query' }
+  & { mdx?: Maybe<(
+    { __typename?: 'Mdx' }
+    & Pick<Mdx, 'body' | 'tableOfContents'>
+  )> }
+);
+
 export type ContactsImagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3909,16 +3920,20 @@ export type IndexImagesQueryQuery = (
         )> }
       )> }
     )> }
-  ), footer?: Maybe<(
-    { __typename?: 'File' }
-    & { childImageSharp?: Maybe<(
-      { __typename?: 'ImageSharp' }
-      & { fluid?: Maybe<(
-        { __typename?: 'ImageSharpFluid' }
-        & GatsbyImageSharpFluidFragment
+  ), sliderFooter: (
+    { __typename?: 'FileConnection' }
+    & { nodes: Array<(
+      { __typename?: 'File' }
+      & Pick<File, 'id'>
+      & { childImageSharp?: Maybe<(
+        { __typename?: 'ImageSharp' }
+        & { fluid?: Maybe<(
+          { __typename?: 'ImageSharpFluid' }
+          & GatsbyImageSharpFluidFragment
+        )> }
       )> }
     )> }
-  )> }
+  ) }
 );
 
 export type PartnerLogosQueryQueryVariables = Exact<{ [key: string]: never; }>;

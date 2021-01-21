@@ -40,6 +40,7 @@ const URLS = {
   alabak: "https://www.facebook.com/alabak.info",
   trynskotd: "https://www.facebook.com/tourismtransko",
   ustremeni: "https://ustremeni.blogspot.com",
+  endurowarriors: "https://www.facebook.com/EnduroWarriors/",
 }
 
 export default function OrgsPage() {
