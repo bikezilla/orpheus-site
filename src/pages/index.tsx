@@ -9,7 +9,7 @@ import SEO from "../components/seo"
 
 const INDEX_IMAGES_QUERY = graphql`
   query IndexImagesQuery {
-    slider: allFile(filter: { relativeDirectory: { eq: "index-slider" } }) {
+    slider: allFile(filter: { relativeDirectory: { eq: "index-header-slider" } }) {
       nodes {
         id
         childImageSharp {
@@ -19,10 +19,13 @@ const INDEX_IMAGES_QUERY = graphql`
         }
       }
     }
-    footer: file(relativePath: { eq: "index-footer.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 900) {
-          ...GatsbyImageSharpFluid
+    sliderFooter: allFile(filter: { relativeDirectory: { eq: "index-footer-slider" } }) {
+      nodes {
+        id
+        childImageSharp {
+          fluid(maxWidth: 1140, maxHeight: 400) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
@@ -36,6 +39,12 @@ const IndexPage = () => {
 
   const onSlideAdvanced = (index: number) => {
     setSliderIndex(index == 0 ? index + 1 : index)
+  }
+
+  const [sliderFooterIndex, setSliderFooterIndex] = useState(1)
+
+  const onSlideFooterAdvanced = (index: number) => {
+    setSliderFooterIndex(index == 0 ? index + 1 : index)
   }
 
   return (
@@ -72,7 +81,7 @@ const IndexPage = () => {
             маркиране на маршрути за планинско колоездене в България, е
             инициатива на четири български организации с дългогодишен опит в
             планинското колездене - Сдружение "Байкария", Сдружение "Алабак",
-            Велоклуб "Крива Спица" и MTB-BG.com
+            Велоклуб "Крива Спица" и MTB-BG.com 
           </p>
         </div>
       </div>
@@ -172,10 +181,20 @@ const IndexPage = () => {
         </Card>
       </div>
 
-      <div className="mt-5">
-        <Card>
-          <Img fluid={query.footer!.childImageSharp!.fluid! as any} />
-        </Card>
+      <div className="mt-5 orph-slider">
+        <Carousel
+          activeIndex={sliderFooterIndex}
+          onSelect={onSlideFooterAdvanced}
+          controls={false}
+          indicators={false}
+          keyboard={false}
+        >
+          {query.sliderFooter.nodes.map(image => (
+            <Carousel.Item key={image.id}>
+              <Img fluid={image.childImageSharp!.fluid! as any} />
+            </Carousel.Item>
+          ))}
+        </Carousel>
       </div>
     </Layout>
   )
