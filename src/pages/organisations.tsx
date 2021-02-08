@@ -41,6 +41,9 @@ const URLS = {
   trynskotd: "https://www.facebook.com/tourismtransko",
   ustremeni: "https://ustremeni.blogspot.com",
   endurowarriors: "https://www.facebook.com/EnduroWarriors/",
+  ustrem: "https://www.facebook.com/USTREM.CYCLING",
+  skala: "https://clubskala.org/",
+  ridersunited: "https://www.facebook.com/RidersUnitedTeam/",
 }
 
 export default function OrgsPage() {
