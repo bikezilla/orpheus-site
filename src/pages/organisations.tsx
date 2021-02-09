@@ -44,6 +44,7 @@ const URLS = {
   ustrem: "https://www.facebook.com/USTREM.CYCLING",
   skala: "https://clubskala.org/",
   ridersunited: "https://www.facebook.com/RidersUnitedTeam/",
+  zarata: "https://www.facebook.com/mtb.zarata",
 }
 
 export default function OrgsPage() {
