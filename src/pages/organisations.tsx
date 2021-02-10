@@ -45,7 +45,7 @@ const URLS = {
   skala: "https://clubskala.org/",
   ridersunited: "https://www.facebook.com/RidersUnitedTeam/",
   zarata: "https://www.facebook.com/mtb.zarata",
-  "black-sea-route": "https://www.facebook.com/blacksearoute",
+  theblacksearoute: "https://www.facebook.com/blacksearoute",
 }
 
 export default function OrgsPage() {
