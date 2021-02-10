@@ -171,7 +171,7 @@ const IndexPage = () => {
             </ListGroupItem>
             <ListGroupItem>
               Списък с организациите, заявили подкрепа за инициативата, ще
-              откриете в <Link to="/clubs">"Организации"</Link>
+              откриете в <Link to="/organisations">"Организации"</Link>
             </ListGroupItem>
             <ListGroupItem>
               Информация за опита на организациите и авторите на проекта - в{" "}
